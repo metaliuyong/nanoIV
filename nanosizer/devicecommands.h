@@ -1,0 +1,5 @@
+#ifndef DEVICECOMMANDS
+#define DEVICECOMMANDS
+
+#endif // DEVICECOMMANDS
+

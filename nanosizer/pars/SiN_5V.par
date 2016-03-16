@@ -1,0 +1,12 @@
+#SweepCount
+3
+#Cycle
+1
+#StartVoltage
+-5
+#EndVoltage
+5
+#VoltageIncrement
+0.25
+#Pause
+3

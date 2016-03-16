@@ -1,0 +1,27 @@
+#include "ivsweepavg.h"
+
+#include "ivsweep.h"
+
+IVSweepAvg::IVSweepAvg()
+{
+    numberofsweepsinavg_ = 0;
+
+}
+
+//void IVSweepAvg::AddSweepToSweepList()
+
+void IVSweepAvg::UpdateAverage()
+{
+    int sweepsinaverage = 0;
+    for(unsigned int i = 0; i < sweeps_.size(); i++)
+    {
+        if(sweeps_[i]->inaverage() == true)
+        {
+            sweepsinaverage++;
+        }
+    }
+
+
+}
+
+
