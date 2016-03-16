@@ -7,12 +7,5 @@ nanoIV was written in C++ and uses the Qt framework.
 ##Instructions
 
 [nanoIV pic](./home/preston/Desktop/Science/Research/QtApplications/nanoIV/nanoIV_pic.PNG)
-=======
-nanoIV is a simple UI program written in C++ for the Qt framework that allows the user to remotely control a Keithley 6487 picoammeter. 
->>>>>>> 0330ae958eddce55e9f531bf787f94be1395d4fc
 
-The program can be used to measure an IV curve on a device, or measure a time-series of the current.
-
-...
-
-via github.com
+# nanoIV
