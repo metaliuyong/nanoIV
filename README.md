@@ -5,6 +5,6 @@ nanoIV was written in C++ and uses the Qt framework.
 
 ##Instructions
 
-![nanoIV pic](./home/preston/Desktop/Science/Research/QtApplications/nanoIV/nanoIV_pic.PNG)
+![nanoIV pic](./nanoIV_pic.PNG)
 
 # nanoIV
