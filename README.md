@@ -30,7 +30,7 @@ After download and installation, compile and run in Qt.
 - Save any subset of the gathered data
 - Change the plot range in real-time to inspect IV curves during acquisition
 
-#### Active current monitoring
+#### Time-series
 - Monitor device current in real-time while an IV curve is running
 - Allows saving of the entire acquired time-series
 
