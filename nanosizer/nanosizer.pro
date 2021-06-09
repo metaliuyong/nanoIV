@@ -19,12 +19,12 @@ INCLUDEPATH += C:\Users\Steven\Desktop\nanosizer_1\qcustomplot\ where qcustomplo
 
 
 SOURCES += main.cpp\
+    qcustomplot.cpp \
     session.cpp \
     typeconversions.cpp \
     ivsweep.cpp \
     session_interface.cpp \
     session_commands.cpp \
-    ../qcustomplot/qcustomplot.cpp \
     measurementprotocol.cpp \
     session_staticmembervariables.cpp \
     gpiberror.cpp \
@@ -45,10 +45,10 @@ SOURCES += main.cpp\
     overwritefiledialogue.cpp
 
 HEADERS  += mainwindow.h \
+    qcustomplot.h \
     session.h \
     typeconversions.h \
     ivsweep.h \
-    ../qcustomplot/qcustomplot.h \
     measurementprotocol.h \
     gpiberror.h \
     currentsampleprotocol.h \
@@ -61,7 +61,7 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     overwritefiledialogue.ui
 
-LIBS += -L"C:\Program Files (x86)\IVI Foundation\VISA\WinNT\lib\msc" -lvisa32
+LIBS += -L"C:\Program Files\IVI Foundation\VISA\Win64\Lib_x64\msc" -lvisa64
 LIBS += -lwinmm
 
 CONFIG += c++11

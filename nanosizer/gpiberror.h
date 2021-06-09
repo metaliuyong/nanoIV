@@ -1,7 +1,7 @@
 #ifndef GPIBERROR
 #define GPIBERROR
 
-#include "C:\Program Files\IVI Foundation\VISA\Win64\Include\visa.h"
+#include "C:\Program Files\IVI Foundation\VISA\Win64\include\visa.h"
 #include <string>
 #include <iostream>
 
