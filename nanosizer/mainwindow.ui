@@ -694,6 +694,20 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <widget class="QMenu" name="menuZero_Correction">
+     <property name="title">
+      <string>Zero Correction</string>
+     </property>
+     <addaction name="actionZeroCorrectionOn"/>
+     <addaction name="actionZeroCorrectionOff"/>
+    </widget>
+    <addaction name="menuZero_Correction"/>
+   </widget>
+   <addaction name="menuTools"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -704,6 +718,16 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionZeroCorrectionOn">
+   <property name="text">
+    <string>On</string>
+   </property>
+  </action>
+  <action name="actionZeroCorrectionOff">
+   <property name="text">
+    <string>Off</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

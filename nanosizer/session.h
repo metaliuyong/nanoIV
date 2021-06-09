@@ -33,8 +33,10 @@ public:
     static bool CheckInstrumentOpen();
 
     static float MeasureCurrent();
+    static float MeasureVoltage();
 
     static void EnDisableZeroCheck(bool zerocheck);
+    static void EnDisableZeroCorrection(bool zerocorrection);
 
     static void ReadWriteInstrument(std::string message);
     static void WriteToInstrument(std::string message);

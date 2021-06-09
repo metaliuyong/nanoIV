@@ -25,7 +25,7 @@ void CurrentSampleProtocol::StopRoutine()
         started_ = false;
         stopped_ = true;
         emit RequestEndRoutine();
-        QString my_current_series_file = QFileDialog::getOpenFileName();
+        QString my_current_series_file = QFileDialog::getSaveFileName();
         QFile file {my_current_series_file};
         QTextStream stream {&file};
         if(file.open(QIODevice::ReadWrite)){
@@ -73,9 +73,12 @@ void CurrentSampleProtocol::RunRoutine()
             my_time_vector.reserve(1024);
             my_current_vector.clear();
             my_current_vector.reserve(1024);
+            my_voltage_vector.clear();
+            my_voltage_vector.reserve(1024);
         }
         if(!paused_)
         {
+            Sleep(SecToMs(period_));
             if(seriesindex_ == 0){
                 starttime_ = timeGetTime();
             }
@@ -85,11 +88,10 @@ void CurrentSampleProtocol::RunRoutine()
             my_time_vector.append(MsToSec(timeGetTime() - my_start_time));
             y_[seriesindex_] = my_temp_current;
             my_current_vector.append(my_temp_current);
-            my_voltage_vector.append(Session::GetVoltage());
+            my_voltage_vector.append(Session::MeasureVoltage());
             seriesindex_ = (seriesindex_ + 1)%serieslength_;
 
             emit RequestUpdatePlot(0, x_, y_);
-            Sleep(SecToMs(period_));
         }
     }
 

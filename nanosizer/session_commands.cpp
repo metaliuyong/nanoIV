@@ -16,12 +16,17 @@ void Session::EnDisableZeroCheck(bool zerocheck)
     return;
 }
 
-float Session::GetVoltage()
-{
-    WriteToInstrument("SOUR:VOLT?\n");
-    ReadFromInstrument();
-    return UnsignedCharToFloat(readbuffer);
+
+void Session::EnDisableZeroCorrection(bool zerocorrection){
+    if(zerocorrection == true){
+        WriteToInstrument("SYST:ZCOR ON\n");
+    }
+    else{
+        WriteToInstrument("SYST:ZCOR OFF\n");
+    }
+    return;
 }
+
 
 void Session::EnableVoltageControlMode()
 {
@@ -52,7 +57,6 @@ void Session::DisableVoltageControlMode()
 
 void Session::SetVoltage(float voltage_float)
 {
-
     std::string voltage_string = FloatToString(voltage_float);
 
     std::string command = "SOUR:VOLT " + voltage_string + "\n";
@@ -101,6 +105,7 @@ void Session::EnableMeasureCurrentMode()
     return;
 }
 
+
 void Session::EnableHighFrequencyReadings()
 {
     //Need to fix this part
@@ -110,6 +115,20 @@ void Session::EnableHighFrequencyReadings()
     //WriteToInstrument("TRIG:DELAY 0.0\n");
 
     return;
+}
+
+
+float Session::GetVoltage()
+{
+    WriteToInstrument("SOUR:VOLT?\n");
+    ReadFromInstrument();
+    return UnsignedCharToFloat(readbuffer);
+}
+
+float Session::MeasureVoltage(){
+    WriteToInstrument("CONFIGURE:VOLTAGE READ?\n");
+    ReadFromInstrument();
+    return UnsignedCharToFloat(readbuffer);
 }
 
 float Session::MeasureCurrent()

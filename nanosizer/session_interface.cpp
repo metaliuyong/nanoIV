@@ -15,8 +15,6 @@ void Session::WriteToInstrument(std::string message)
     vistatus = viWrite(instrumentsession, (unsigned char*) message.c_str(), bytes, &bytestransferred);
 
     CheckDisplayError(vistatus, "ERROR: viWrite: " + message + "\n");
-
-
     return;
 }
 

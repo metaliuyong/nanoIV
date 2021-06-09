@@ -189,6 +189,7 @@ private slots:
     void on_ZCheck_On_clicked();
 
 
+
     /////////////////////////////
     //External UI update requests
     /////////////////////////////
@@ -353,9 +354,9 @@ private slots:
 
     void on_CurrentSample_ZoomInY_released();
 
+    void on_actionZeroCorrectionOn_triggered();
 
-
-
+    void on_actionZeroCorrectionOff_triggered();
 
 private:
     Ui::MainWindow *ui;

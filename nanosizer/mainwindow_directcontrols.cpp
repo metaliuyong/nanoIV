@@ -32,6 +32,18 @@ void MainWindow::on_ZCheck_On_clicked()
     return;
 }
 
+void MainWindow::on_actionZeroCorrectionOff_triggered(){
+    qDebug() << "Zero Check Off";
+    Session::EnDisableZeroCorrection(false);
+    return;
+}
+
+void MainWindow::on_actionZeroCorrectionOn_triggered(){
+    qDebug() << "Zero Check On";
+    Session::EnDisableZeroCorrection(true);
+    return;
+}
+
 void MainWindow::on_IncrementVoltage_clicked()
 {
     Session::IncrementVoltage();
