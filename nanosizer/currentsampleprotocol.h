@@ -25,6 +25,10 @@ public:
     void SetXPoints();
     QVector<double> y_;
 
+    QVector<double> my_time_vector;
+    QVector<double> my_current_vector;
+    QVector<double> my_voltage_vector;
+
     void ResizeCurrentTimeSeries(int newserieslength);
 
     double frequency();
@@ -48,6 +52,11 @@ private:
 
     double starttime_;
 
+    double my_start_time;
+
+    int my_index;
+
+    double my_temp_current;
 };
 
 #endif // CURRENTSAMPLEPROTOCOL_H

@@ -25,6 +25,15 @@ void CurrentSampleProtocol::StopRoutine()
         started_ = false;
         stopped_ = true;
         emit RequestEndRoutine();
+        QString my_current_series_file = QFileDialog::getOpenFileName();
+        QFile file {my_current_series_file};
+        QTextStream stream {&file};
+        if(file.open(QIODevice::ReadWrite)){
+            for(int iii = 0; iii < my_time_vector.size(); iii++){
+                stream << QString::number(my_time_vector[iii]) << "\t" << QString::number(my_current_vector[iii]) << "\t" << QString::number(my_voltage_vector[iii]) << "\n";
+            }
+        }
+        file.close();
     }
     return;
 }
@@ -53,25 +62,34 @@ void CurrentSampleProtocol::ResizeCurrentTimeSeries(int newserieslength)
 
 void CurrentSampleProtocol::RunRoutine()
 {
-
-
-
+    bool my_flag {true};
     while(started_)
     {
+        if(my_flag == true){
+            my_index = 0;
+            my_start_time = timeGetTime();
+            my_flag = false;
+            my_time_vector.clear();
+            my_time_vector.reserve(1024);
+            my_current_vector.clear();
+            my_current_vector.reserve(1024);
+        }
         if(!paused_)
         {
-            Sleep(SecToMs(period_));
-            if(seriesindex_ == 0)
-            {
+            if(seriesindex_ == 0){
                 starttime_ = timeGetTime();
             }
-            x_[seriesindex_] = MsToSec(timeGetTime() - starttime_);
+            my_temp_current = Session::MeasureCurrent();
 
-            y_[seriesindex_] = Session::MeasureCurrent();
+            x_[seriesindex_] = MsToSec(timeGetTime() - starttime_);
+            my_time_vector.append(MsToSec(timeGetTime() - my_start_time));
+            y_[seriesindex_] = my_temp_current;
+            my_current_vector.append(my_temp_current);
+            my_voltage_vector.append(Session::GetVoltage());
             seriesindex_ = (seriesindex_ + 1)%serieslength_;
 
             emit RequestUpdatePlot(0, x_, y_);
-
+            Sleep(SecToMs(period_));
         }
     }
 
